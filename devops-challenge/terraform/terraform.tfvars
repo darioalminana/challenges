@@ -1,5 +1,5 @@
-access_key = "AKIATQHMU6XXXXXXXXXX"
-secret_key = "aBS5TQuLG92nKNvnDo9Jjx4h2uT6ToXXXXXXXXXX"
+#access_key = "AKIATQHMU6XXXXXXXXXX"
+#secret_key = "aBS5TQuLG92nKNvnDo9Jjx4h2uT6ToXXXXXXXXXX"
 
 vpc_cidr             = "10.0.0.0/16"
 vpc_name             = "dev-challenge-us-west-vpc-1"
