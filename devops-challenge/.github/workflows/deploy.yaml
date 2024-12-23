@@ -1,0 +1,32 @@
+name: Deploy golang app
+
+on:
+ push:
+   branches:
+    - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout to server
+        uses: appleboy/ssh-action@master
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          script: |
+            sudo cd /home/ubuntu
+            sudo git pull
+
+      - name: Build and run image
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+              sudo cd /home/ubuntu
+              sudo docker-compose down
+              sudo docker-compose up -d --build
