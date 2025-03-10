@@ -1,9 +1,10 @@
 name: Test Schedule Workflow
 on:
   push:
+  pull_request:
   schedule:
     - cron: '* * * * *'
-   workflow_dispatch:
+  workflow_dispatch:
        inputs:
       md5sum:
         description: 'md5sum Artifact'
@@ -13,7 +14,7 @@ on:
 concurrency:
   group: schedule${{ github.event.inputs.date }}
   cancel-in-progress: true
-  
+
 jobs:
   cron:
     runs-on: ubuntu-latest
