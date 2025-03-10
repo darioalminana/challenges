@@ -16,20 +16,32 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  cron:
+  schedule:
+    name: Schedule
     runs-on: ubuntu-latest
-
     steps:
-     - uses: austenstone/schedule@v1.3
+      - uses: austenstone/schedule@v1.3
         with:
+          #github-token: ${{ secrets.TOKEN_GH }}
+          #date: 'at 12:30' # Careful with the timezone!
           workflow: 'TestDeploy.yaml'
           timezone: 'America/Cancun' # US/Central, US/Pacific, Europe/Madrid
           inputs: ${{ toJson(github.event.inputs) }}
-    #  - name: Run a one-line script
-    #     run: |
-    #       DIA=`date +"%d/%m/%Y"`
-    #       HORA=`date +"%H:%M"`
-    #       echo "$DIA - $HORA"
+
+
+
+# jobs:
+#   cron:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#      - uses: austenstone/schedule@v1.3
+#         with:
+#       - name: Run a one-line script
+#         run: |
+#           DIA=`date +"%d/%m/%Y"`
+#           HORA=`date +"%H:%M"`
+#           echo "$DIA - $HORA"
 
 # name: 📅 Schedule Workflow Dispatch
 # on:
