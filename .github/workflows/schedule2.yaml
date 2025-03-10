@@ -21,7 +21,11 @@ jobs:
 
     steps:
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: |
+          echo md5:  ${{ github.event.inputs.md5sum }}
+          DIA=`date +"%d/%m/%Y"`
+          HORA=`date +"%H:%M"`
+          echo "$DIA - $HORA"
 
 # name: 📅 Schedule Workflow Dispatch
 # on:
