@@ -1,8 +1,16 @@
 name: Test Schedule Workflow
 on:
+  push:
   schedule:
     - cron: '* * * * *'
-
+   workflow_dispatch:
+       inputs:
+      md5sum:
+        description: 'md5sum Artifact'
+        default: 'b6a33fbdfee1bc5817356ce2e13d3ad9'
+        type: string
+        required: true
+        
 jobs:
   cron:
     runs-on: ubuntu-latest
