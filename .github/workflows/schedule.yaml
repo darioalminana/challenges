@@ -24,6 +24,6 @@ jobs:
         with:
           #github-token: ${{ secrets.TOKEN_GH }}
           #date: 'at 12:30' # Careful with the timezone!
-          workflow: 'TestDeploy.yml'
+          workflow: 'TestDeploy.yaml'
           timezone: 'America/Cancun' # US/Central, US/Pacific, Europe/Madrid
           #inputs: ${{ toJson(github.event.inputs) }}
