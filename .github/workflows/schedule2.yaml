@@ -1,3 +1,16 @@
+name: Test Schedule Workflow
+on:
+  schedule:
+    - cron: '* * * * *'
+
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world!
+
 # name: 📅 Schedule Workflow Dispatch
 # on:
 #   schedule:
@@ -25,15 +38,3 @@
 #           workflow: 'TestDeploy.yaml'
 #           timezone: 'US/Eastern' # US/Central, US/Pacific
 #           wait-ms: 45000
-name: Test Schedule Workflow
-on:
-  schedule:
-    - cron: '* * * * *'
-
-jobs:
-  cron:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Run a one-line script
-        run: echo Hello, world!
