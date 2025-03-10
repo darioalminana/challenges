@@ -10,7 +10,10 @@ on:
         default: 'b6a33fbdfee1bc5817356ce2e13d3ad9'
         type: string
         required: true
-        
+concurrency:
+  group: schedule${{ github.event.inputs.date }}
+  cancel-in-progress: true
+  
 jobs:
   cron:
     runs-on: ubuntu-latest
