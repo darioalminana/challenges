@@ -1,32 +1,32 @@
-name: Test Schedule Workflow
-on:
-  push:
-  pull_request:
-  schedule:
-    - cron: '* * * * *'
-  workflow_dispatch:
-    inputs:
-      md5sum:
-        description: 'md5sum Artifact'
-        default: 'b6a33fbdfee1bc5817356ce2e13d3ad9'
-        type: string
-        required: true
-concurrency:
-  group: schedule${{ github.event.inputs.date }}
-  cancel-in-progress: true
+# name: Test Schedule Workflow
+# on:
+#   push:
+#   pull_request:
+#   schedule:
+#     - cron: '* * * * *'
+#   workflow_dispatch:
+#     inputs:
+#       md5sum:
+#         description: 'md5sum Artifact'
+#         default: 'b6a33fbdfee1bc5817356ce2e13d3ad9'
+#         type: string
+#         required: true
+# concurrency:
+#   group: schedule${{ github.event.inputs.date }}
+#   cancel-in-progress: true
 
-jobs:
-  schedule:
-    name: Schedule
-    runs-on: ubuntu-latest
-    steps:
-      - uses: austenstone/schedule@v1.3
-        with:
-          #github-token: ${{ secrets.TOKEN_GH }}
-          #date: 'at 12:30' # Careful with the timezone!
-          workflow: 'TestDeploy.yaml'
-          timezone: 'America/Cancun' # US/Central, US/Pacific, Europe/Madrid
-          inputs: ${{ toJson(github.event.inputs) }}
+# jobs:
+#   schedule:
+#     name: Schedule
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: austenstone/schedule@v1.3
+#         with:
+#           #github-token: ${{ secrets.TOKEN_GH }}
+#           #date: 'at 12:30' # Careful with the timezone!
+#           workflow: 'TestDeploy.yaml'
+#           timezone: 'America/Cancun' # US/Central, US/Pacific, Europe/Madrid
+#           inputs: ${{ toJson(github.event.inputs) }}
 
 
 
