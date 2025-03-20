@@ -7,8 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: JobA fail
-        run: wget asdasdas
-
+        run: exit 1
   job2:
     runs-on: ubuntu-latest
     needs: job1
