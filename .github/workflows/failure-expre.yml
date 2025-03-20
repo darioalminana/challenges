@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: JobA fail
-        run: exit 1
+        run: exit 0
     
       - name: dependencia fail
         if: ${{ failure() }}
