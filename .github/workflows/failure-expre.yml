@@ -1,0 +1,18 @@
+name: Failure expresion
+
+on: [push, pull_request]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: JobA fail
+        run: echo "$VAR_RANDOM"
+
+  job2:
+    runs-on: ubuntu-latest
+    need: job1
+    steps:
+      - name: Job con dependencia
+        if: ${{ failure() }}
+        run: echo 'Fallo el job1'
