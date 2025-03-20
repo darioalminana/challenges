@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: JobA fail
-        run: echo "$VAR_RANDOM"
+        run: wget asdasdas
 
   job2:
     runs-on: ubuntu-latest
