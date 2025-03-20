@@ -1,0 +1,16 @@
+name: Multi-Runner Workflow
+
+on: [push, pull_request]
+
+jobs:
+  job-on-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run on Ubuntu
+        run: echo "Running on Ubuntu"
+
+  job-on-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Run on Windows
+        run: echo "Running on Windows"
