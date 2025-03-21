@@ -11,6 +11,7 @@ jobs:
       - name: JobA fail
         run: |
           echo "exit error"
+          exit 1
 
   job2:
     runs-on: ubuntu-latest
