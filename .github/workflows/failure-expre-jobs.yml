@@ -12,6 +12,7 @@ jobs:
         run: echo 'primer job'
         
       - name: JobA fail
+        continue-on-error: true
         run: exit 1
 
   job2:
