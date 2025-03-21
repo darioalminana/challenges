@@ -1,17 +1,25 @@
-name: Failure expresion jobs
+name: Failure expresion
 
-on: [push, pull_request]
+on: push
 
 jobs:
   job1:
     runs-on: ubuntu-latest
+    continue-on-error: true
+    
     steps:
       - name: JobA fail
-        run: exit 1
+        run: echo "exit error"
+        run: |
+          echo "exit error"
+          #exit 1
+
   job2:
     runs-on: ubuntu-latest
     needs: job1
+    
     steps:
       - name: Job con dependencia
-        if: ${{ failure() }}
-        run: echo 'Fallo el job1'
+        run: echo "Fallo el job1"
+        #if: failure()
+        #run: echo "Fallo el job1"
