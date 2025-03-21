@@ -14,9 +14,9 @@ jobs:
           exit 1
 
   job2:
-    runs-on: ubuntu-latest
     needs: job1
     if: ${{ failure() }}
+    runs-on: ubuntu-latest
     
     steps:
       - name: Job con dependencia
