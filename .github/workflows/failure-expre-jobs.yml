@@ -8,6 +8,8 @@ jobs:
     steps:
       - name: JobA fail
         run: exit 1
+        continue-on-error:true
+        
   job2:
     runs-on: ubuntu-latest
     needs: job1
