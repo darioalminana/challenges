@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: Fail intentionally
         run: exit 1  # Simulating failure
+        continue-on-error: true
 
   run-on-failure:
     runs-on: ubuntu-latest
