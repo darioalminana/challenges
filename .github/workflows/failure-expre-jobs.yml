@@ -9,11 +9,10 @@ jobs:
     
     steps:
       - name: JobA fail
+        run: echo "exit error"
         run: |
-          echo 'exit error'
-        run: |
-          echo 'exit error'
-          exit 1
+          echo "exit error"
+          #exit 1
 
   job2:
     runs-on: ubuntu-latest
@@ -21,6 +20,6 @@ jobs:
     
     steps:
       - name: Job con dependencia
-        run: echo 'Fallo el job1'
-        if: failure()
-        run: echo 'Fallo el job1'
+        run: echo "Fallo el job1"
+        #if: failure()
+        #run: echo "Fallo el job1"
