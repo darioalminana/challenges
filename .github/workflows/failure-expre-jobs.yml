@@ -1,21 +1,28 @@
-name: Job Runs on Failure
+name: Failure expresion
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  main-job:
+  job1:
     runs-on: ubuntu-latest
-    #allow-failure: true
     continue-on-error: true
+    
     steps:
-      - id: build
-      - name: Fail intentionally
-        run: exit 1 # Simulating failure
+      - name: primer job
+        run: echo 'primer job'
+        
+      - name: JobA fail
+        run: exit 1
 
-  run-on-failure:
+
+  job2:
     runs-on: ubuntu-latest
-    needs: main-job  # Runs after main-job
-    if: failure()  # Only runs if main-job fails
+    needs: job1
+    
     steps:
-      - name: Notify on failure
-        run: echo "Previous job failed! Running recovery actions..."
+      - name: segundo job
+        run: echo 'segundo job'
+    
+      - name: Job con dependencia
+        if: failure()
+        run: echo 'Fallo el job1'
