@@ -5,7 +5,7 @@ on: [push]
 jobs:
   main-job:
     runs-on: ubuntu-latest
-    allow-failure: true
+    #allow-failure: true
     continue-on-error: true
     steps:
       - id: build
