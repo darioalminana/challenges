@@ -9,7 +9,6 @@ jobs:
     
     steps:
       - name: JobA fail
-        run: echo "exit error"
         run: |
           echo "exit error"
           #exit 1
