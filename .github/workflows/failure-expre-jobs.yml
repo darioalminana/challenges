@@ -16,11 +16,16 @@ jobs:
   job2:
     runs-on: ubuntu-latest
     needs: job1
+    if: ${{ failure() }}
     
     steps:
-      - name: fallo
+      - name: Job con dependencia
         run: echo "Fallo el job1"
 
+  job3:
+    runs-on: ubuntu-latest
+    needs: job1
+
+    steps:
       - name: Job con dependencia
-        if: ${{ failure() }}
-        run: echo "Fallo el job1"
+        run: echo "job3"
