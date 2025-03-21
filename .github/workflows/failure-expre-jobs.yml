@@ -8,8 +8,8 @@ jobs:
     continue-on-error: true
     steps:
       - name: JobA fail
-        continue-on-error: true
         run: exit 1
+        continue-on-error: true
 
   job2:
     runs-on: ubuntu-latest
