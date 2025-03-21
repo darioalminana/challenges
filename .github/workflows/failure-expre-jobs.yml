@@ -22,5 +22,5 @@ jobs:
         run: echo "Fallo el job1"
 
       - name: Job con dependencia
-        if: failure()
+        if: ${{ failure() }}
         run: echo "Fallo el job1"
