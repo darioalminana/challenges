@@ -14,6 +14,7 @@ jobs:
   run-on-failure:
     runs-on: ubuntu-latest
     needs: main-job  # Runs after main-job
+    if: always()
     if: failure()  # Only runs if main-job fails
     steps:
       - name: Notify on failure
