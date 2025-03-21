@@ -9,16 +9,9 @@ jobs:
     steps:
       - id: build
       - name: Fail intentionally
-        strategy:
-        matrix:
-        code: [1]
-        run: exit ${{ matrix.code }} # Simulating failure
         continue-on-error: true
-      - uses: mainmatter/continue-on-error-comment@v1
-        with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          outcome: ${{ steps.build.outcome }}
-          test-id: Error code ${{ matrix.code }}
+        run: exit 1 # Simulating failure
+        continue-on-error: true
 
   run-on-failure:
     runs-on: ubuntu-latest
