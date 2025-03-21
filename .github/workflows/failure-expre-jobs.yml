@@ -19,6 +19,5 @@ jobs:
     
     steps:
       - name: Job con dependencia
+        if: failure()
         run: echo "Fallo el job1"
-        #if: failure()
-        #run: echo "Fallo el job1"
