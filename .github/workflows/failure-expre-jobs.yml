@@ -18,6 +18,9 @@ jobs:
     needs: job1
     
     steps:
+      - name: fallo
+        run: echo "Fallo el job1"
+
       - name: Job con dependencia
         if: failure()
         run: echo "Fallo el job1"
